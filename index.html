@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetHaven</title>
+   
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- BOOTSTRAP CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+</head>
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50" tabindex="0">
+    <!-- NAVBAR START -->
+    <nav class="navbar navbar-expand-lg fixed-top" id="navbarId" style="background-color: white; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+      <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center me-auto" href="#">
+          <img src="cc.PNG" style="height: 50px;">
+          <span style="font-weight: bold; font-size: 20px; color: #000; font-weight: 900;">PetHaven</span>
+        </a>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+              <img src="cc.PNG" style="height: 50px;">
+              <span style="font-weight: bold; font-size: 20px; color: #000; font-weight: 900;">PetHaven</span>
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2 active" href="#home">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="#about">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="#service">Service</a>
+              </li>  
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="#porto">Portofolio</a>
+              </li>  
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="#faq">FAQ</a>
+              </li>  
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="#location">Location</a>
+              </li>               
+            </ul>
+          </div>
+        </div>
+        <a href="#contact" class="contact-button">Contact</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav>
+      <!-- NAVBAR END -->
+
+    <!-- Hero Start-->
+    <section class="hero-section">
+      <div class="parallax"></div>
+      <div class="container d-flex align-items-center" style="height: 100%; padding: 50px;">
+        <div class="row">
+          <div class="col-lg-6 text-start">
+            <h1 class="display-4" style="color: #000000; font-weight: 900;">
+              Your Pet's <span id="changing-text" style="color: #f9cd5c;">Happiness</span><br>Our Priority
+            </h1>
+            <p class="lead mt-3" style="color: #573836;">
+              We care for your pets with the same love and dedication they bring to your life. From gentle hands to happy tails, we’re here for every step of their journey.
+            </p>
+            <a href="#" class="btn btn-primary btn-lg mt-4 yellow-btn" data-aos="zoom-in">Make Them Happy</a>
+          </div>
+          <div class="col-lg-6 text-end">
+            <img src="x.PNG" alt="Pet Image" style="max-width: 110%; height: auto; object-fit: cover; width: 200%;"/>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+    <script>
+      const words = ["Happiness", "Comfort", "Health"];
+      let wordIndex = 0;
+      const typingSpeed = 150;
+      const deletingSpeed = 100; 
+      const delayBetweenWords = 1000; 
+      const element = document.getElementById("changing-text");
+    
+      function typeWord(word, callback) {
+        let i = 0;
+        function type() {
+          if (i < word.length) {
+            element.textContent += word[i];
+            i++;
+            setTimeout(type, typingSpeed);
+          } else {
+            setTimeout(callback, delayBetweenWords);
+          }
+        }
+        type();
+      }
+    
+      function deleteWord(callback) {
+        const word = element.textContent;
+        let i = word.length;
+        function del() {
+          if (i > 0) {
+            element.textContent = word.substring(0, i - 1);
+            i--;
+            setTimeout(del, deletingSpeed);
+          } else {
+            callback();
+          }
+        }
+        del();
+      }
+    
+      function startTyping() {
+        const currentWord = words[wordIndex];
+        typeWord(currentWord, () => {
+          deleteWord(() => {
+            wordIndex = (wordIndex + 1) % words.length;
+            startTyping();
+          });
+        });
+      }
+          document.addEventListener("DOMContentLoaded", startTyping);
+    </script>
+     <!-- HERO End -->
+
+  
+    <!-- ABOUT START-->
+<div class="zo" style="background: linear-gradient(to bottom, #6C4DDC, #483395); position: relative;">
+  <section class="container py-5">
+      <div class="text-center mb-5">
+          <h1 id="about" style="width: 50%; margin: auto; font-weight: 800; color: white; margin: auto;" data-aos="fade-down"
+          data-aos-anchor-placement="center-bottom">
+              We aim to help pets experience the 
+              <span style="color: #EFC558;">best care, enjoy a safe haven, and find happiness</span> every day.
+          </h1>
+      </div>
+
+      <div class="row text-center">
+          <div class="col-6 col-md-3 mb-4">
+              <img src="sicantik.jpg" class="img-fluid rounded-circle" alt="Photo 1" data-aos="zoom-out" data-aos-delay="200">
+              <div class="photo-name" data-aos="fade-up">Aisyah</div>
+              <div class="photo-description" data-aos="fade-up" >Founder</div>
+          </div>
+          <div class="col-6 col-md-3 mb-4" style="position: relative;">
+            <img src="sinto.JPG" class="img-fluid rounded-circle" alt="Photo 2" data-aos="zoom-out" data-aos-delay="300">
+            <div class="photo-name" data-aos="fade-up">Sinta</div>
+            <div class="photo-description" data-aos="fade-up">Head Seller</div>
+            
+            <img data-aos="zoom-in" data-aos-delay="300" src="https://i.ibb.co.com/ryGd9Y2/Tak-berjudul131-20241212172529.png" alt="Bullet Photo" class="bullet-decoration">
+        </div>
+        <div class="col-6 col-md-3 mb-4" style="position: relative;">
+          <img src="kia.png" class="img-fluid rounded-circle" alt="Photo 2" data-aos="zoom-out" data-aos-delay="400">
+          <div class="photo-name" data-aos="fade-up">Kia</div>
+          <div class="photo-description" data-aos="fade-up">Head Grooming</div>
+          
+          <img data-aos="zoom-in" data-aos-delay="300" src="https://i.ibb.co.com/NS4FP26/Tak-berjudul131-20241212172501.png" alt="Bullet Photo" class="bulet-decoration">
+      </div>
+          <div class="col-6 col-md-3 mb-4">
+              <img src="amerie.jpeg" class="img-fluid rounded-circle" alt="Photo 4" data-aos="zoom-out" data-aos-delay="500">
+              <div class="photo-name" data-aos="fade-up">Amerie</div>
+              <div class="photo-description" data-aos="fade-up">Staff</div>
+          </div>
+      </div>
+  </section>
+  <img  src="https://i.ibb.co.com/d0g43XC/Tak-berjudul128-20241212165011.png" alt="Star" class="star-decoration" data-aos="fade-down" data-aos-delay="200">
+</div>
+<!-- ABOUT END -->
+
+
+<!-- Service Start -->
+<div class="text-center" style="color:  #6C4DDC; margin-top: 50px;">
+  <h1 style=" font-weight: 900;" data-aos="zoom-out" id="service" >Our Service</h1>
+</div>
+
+ <div class="container mt-4" >
+  <div class="row justify-content-center">
+    <div class="col-auto">
+      <div class="custom-card" data-aos="zoom-in" data-aos-delay="100">
+        <img src="https://i.ibb.co.com/tQWXPrz/Tak-berjudul105-20241212183254.png" alt="Foto 1" class="card-photo">
+        <h5 class="card-title mt-2" style="color: #573836;">Hotel</h5>
+        <p class="card-desc">We offer comfortable stays for your pets. Your furry friends will feel right at home with us.</p>
+      </div>
+    </div>
+    <div class="col-auto">
+      <div class="custom-card" data-aos="zoom-in" data-aos-delay="200">
+        <img src="https://i.ibb.co.com/5RvQLPf/Tak-berjudul105-20241212183242.png" alt="Foto 2" class="card-photo">
+        <h5 class="card-title mt-2">Grooming</h5>
+        <p class="card-desc">Expert grooming services are here for you. Enjoy a fresh and stylish look every time</p>
+      </div>
+    </div>
+    <div class="col-auto">
+      <div class="custom-card" data-aos="zoom-in" data-aos-delay="300">
+        <img src="https://i.ibb.co.com/sVbt2pb/Tak-berjudul105-20241212183220.png" alt="Foto 3" class="card-photo">
+        <h5 class="card-title mt-2">Pet Store</h5>
+        <p class="card-desc">Quality products are available for all your needs. We provide the best to meet your expectations.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- Service End -->
+
+
+
+<script type="text/javascript" src="vanilla-tilt.js"></script>
+<!-- Standart START -->
+<div class="bgo" style="background-color: #F9F9F9; margin-top: -50px; margin-top: 80px;">
+  <div class="text-center" style="color: #6C4DDC; margin-top: 50px; padding: 50px;">
+   <h1 style="font-weight: 900;" data-aos="fade-up">Our Pet Care Standard</h1>
+ </div>
+ 
+
+  <div class="containerr py-5">
+   <div class="row content-section align-items-center content-row" style="background-color: #F9F9F9">
+     <div class="col-md-4" data-aos="fade-right"  >
+       <img src=" https://i.ibb.co.com/NpFF7xv/Rectangle-20.png" alt="Foto 1" class="img-fluid bordered-image">
+     </div>
+     <div class="col-md-6 text-left" data-aos="fade-right"  data-aos-delay="200">
+       <h3>Generous Pet Playgrounds</h3>
+       <p>Our wide pet play zones are crafted to ensure your furry friends have plenty of room to roam, discover, and interact with other pets in a secure and well-monitored setting.</p>
+     </div>
+   </div>
+
+   <div class="row content-section align-items-center content-row flex-md-row-reverse" style="background-color: #F9F9F9">
+     <div class="col-md-4" data-aos="fade-left" data-aos-delay="300">
+       <img src="https://i.ibb.co.com/pvrgT3v/Rectangle-21.png" alt="Foto 2" class="img-fluid  borderedd-image">
+     </div>
+     <div class="col-md-6 text-right" data-aos="fade-left" data-aos-delay="400">
+       <h3>
+         Comfortable Resting Spots</h3>
+       <p>After an exciting day of play, your pet can unwind in our comfortable resting areas, complete with plush bedding and a tranquil ambiance, helping them feel right at home.</p>
+     </div>
+   </div>
+
+   <div class="row content-section align-items-center content-row" style="background-color: #F9F9F9">
+     <div class="col-md-4" data-aos="fade-right" data-aos-delay="500">
+       <img src="https://i.ibb.co.com/1M5stgJ/Rectangle-22.png" alt="Foto 3" class="img-fluid  bordered-image">
+     </div>
+     <div class="col-md-6 text-left" data-aos="fade-right" data-aos-delay="600">
+       <h3>Pristine and Safe Environment</h3>
+       <p>We focus on the well-being and safety of all our guests by keeping our facility clean and safe, using premium cleaning products and regular sanitization to maintain a healthy space for your pet.</p>
+     </div>
+   </div>
+
+   <div class="d-flex justify-content-center align-items-center vh-90">
+     <button class="btn custom-btn"  data-aos="zoom-in" data-aos-delay="700">Schedule a Visit</button>
+   </div>
+ </div>
+</div>
+  <!-- Standart END -->
+
+
+<!-- PORTO START -->
+<div class="porto container d-flex align-items-center justify-content-center" style="color: #6C4DDC; margin-top: 100px; margin-bottom: 100px;" id="porto">
+  <div class="foto col-md-4 mb-0" style="position: relative;">
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousell">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      </div>
+      <div class="carousel-inner" data-aos="zoom-in" data-aos-delay="100">
+        <div class="carousel-item active">
+          <img src="https://i.ibb.co.com/5Kvy0VX/Whats-App-Image-2024-12-08-at-21-36-31.jpg" class="d-block w-100" alt="Foto 1">
+        </div>
+        <div class="carousel-item">
+          <img src="https://i.ibb.co.com/5FF0xc3/Whats-App-Image-2024-12-08-at-21-36-27.jpg" class="d-block w-100" alt="Foto 2">
+        </div>
+      </div>
+    </div>
+
+    <img  data-aos="zoom-out" data-aos-delay="500" src="https://i.ibb.co.com/NS4FP26/Tak-berjudul131-20241212172501.png " alt="Bullet Photo Left" class="bullet-left">
+
+    <img  data-aos="zoom-out" data-aos-delay="500" src="https://i.ibb.co.com/VMsf546/Tak-berjudul131-20241212191205.png" alt="Bullet Photo Right" class="bullet-right">
+
+  </div>
+
+  <div class="tulisan col-md-0">
+    <div class="container mt-5">
+      <div class="big-title" style="font-weight: 900;" data-aos="fade-left" data-aos-delay="200">Tailored Grooming<br><span style="color: #EFC558;">Stunning Results!</span></div>
+      <div class="small-title"  data-aos="fade-up" data-aos-delay="300" >We’ve Cared for:</div>
+      <div class="stats">
+        <div class="row">
+          <div class="col-md-6 stat-item" >
+            <div class="number" style="font-weight: 900;"  data-aos="zoom-out" data-aos-delay="500">500<span style="color: #EFC558;">+</span></div>
+            <div class="description">Pets Cared for<br>Here!</div>
+          </div>
+          <div class="col-md-6 stat-item">
+            <div class="number" style="font-weight: 900;" data-aos="zoom-out" data-aos-delay="600">100<span style="color: #EFC558;">+</span></div>
+            <div class="description">Pets Have Stayed with Us!</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- PORTO END -->
+
+  
+<!-- CHOOSE START -->
+<div class="bgo">
+  <div class="text-center" style="color: #6C4DDC; margin-top: 50px; padding-top: 50px;" >
+   <h1 data-aos="zoom-out" data-aos-delay="100" style=" font-weight: 900 !important;">Why <span style="color: #EFC558;">Choose</span> Us?</h1>
+ </div>
+<div class="poal">
+<div class="container mt-4" style="padding: 50px;">
+  <div class="row row-cols-2 row-cols-lg-3 g-4">
+    <div class="col">
+      <div class="grid-item" data-aos="zoom-out" data-aos-delay="200">
+        <img src="https://i.ibb.co.com/1TKqTq2/Tak-berjudul107-20241212185350.png" alt="Placeholder Image">
+        <h5>Expert care</h5>
+        <p>Professional, attentive care for every pet.</p>
+      </div>
+    </div>
+    <div class="col">
+      <div class="grid-item" data-aos="zoom-out" data-aos-delay="300">
+        <img src="https://i.ibb.co.com/f2Y1999/Tak-berjudul122-20241212185251.png" alt="Placeholder Image">
+        <h5>Comfortable Stay</h5>
+        <p>A cozy and safe enviroment for pets to relax and enjoy.</p>
+      </div>
+    </div>
+    <div class="col">
+      <div class="grid-item" data-aos="zoom-out" data-aos-delay="400">
+        <img src=" https://i.ibb.co.com/R0FkSJj/Tak-berjudul123-20241212185313.png" alt="Placeholder Image">
+        <h5>Grooming Service</h5>
+        <p>Complete grooming to keep your pet looking their best.</p>
+      </div>
+    </div>
+    <div class="col">
+      <div class="grid-item" data-aos="zoom-out" data-aos-delay="400">
+        <img src="https://i.ibb.co.com/6gTwXLg/Tak-berjudul125-20241212185422.png" alt="Placeholder Image">
+        <h5>Premium Products</h5>
+        <p>High-quality pet  products avaible for all your needs.</p>
+      </div>
+    </div>
+    <div class="col">
+      <div class="grid-item" data-aos="zoom-out" data-aos-delay="500">
+        <img src="https://i.ibb.co.com/C6PRqpn/Tak-berjudul126-20241212185446.png" alt="Placeholder Image">
+        <h5>Play and Socialization</h5>
+        <p>Engaging acttivies to keep your pet happy and active.</p>
+      </div>
+    </div>
+    <div class="col">
+      <div class="grid-item" data-aos="zoom-out" data-aos-delay="600">
+        <img src="https://i.ibb.co.com/BsLBhK3/Tak-berjudul127-20241212185555.png" alt="Placeholder Image">
+        <h5>Convenient Location</h5>
+        <p>Easily accessible with ample parking for your convenience.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+   <!-- CHOOSE END-->
+
+   
+
+   <!-- FAQ START -->
+   <div class="container py-5" style="width: 80%;" id="faq">
+    <h2 class="faq-title" style="font-weight: 900; color: #6C4DDC;" data-aos="fade-down">Frequently Asked Questions</h2>
+    <div class="accordion" id="faqAccordion">
+        <div>
+            <div class="faq-question" id="question1" data-bs-toggle="collapse" data-bs-target="#answer1" aria-expanded="false" aria-controls="answer1"  data-aos="fade-up"  data-ao-delay="800">
+                <span>What services do you offer at PetHaven?</span>
+                <button class="btn btn-sm"><i class="bi bi-arrow-down-circle" style="font-size: 25px;"></i></button>
+            </div>
+            <div id="answer1" class="collapse" aria-labelledby="question1" data-bs-parent="#faqAccordion">
+                <p class="faq-answer">At PetHaven, we offer professional pet grooming, a cozy pet hotel for your furry friends, and a wide range of pet supplies, including food, toys, and accessories.</p>
+            </div>
+        </div>
+    
+        <div>
+            <div class="faq-question" id="question2" data-bs-toggle="collapse" data-bs-target="#answer2" aria-expanded="false" aria-controls="answer2" data-aos="fade-up"  data-ao-delay="700">
+                <span>What types of pets can be groomed at PetHaven?</span>
+                <button class="btn btn-sm"><i class="bi bi-arrow-down-circle" style="font-size: 25px;"></i></button>
+            </div>
+            <div id="answer2" class="collapse" aria-labelledby="question2" data-bs-parent="#faqAccordion">
+                <p class="faq-answer">We provide grooming services for various pets, including dogs, cats, and small animals like rabbits and guinea pigs. Our trained staff ensures your pet feels comfortable and cared for.</p>
+            </div>
+        </div>
+      
+        <div>
+            <div class="faq-question" id="question3" data-bs-toggle="collapse" data-bs-target="#answer3" aria-expanded="false" aria-controls="answer3" data-aos="fade-up"  data-ao-delay="600">
+                <span>What payment methods are accepted?</span>
+                <button class="btn btn-sm"><i class="bi bi-arrow-down-circle" style="font-size: 25px;"></i></button>
+            </div>
+            <div id="answer3" class="collapse" aria-labelledby="question3" data-bs-parent="#faqAccordion">
+                <p class="faq-answer">We accept various payment methods, including credit cards, bank transfers, and digital wallets.</p>
+            </div>
+        </div>
+    
+        <div>
+            <div class="faq-question" id="question4" data-bs-toggle="collapse" data-bs-target="#answer4" aria-expanded="false" aria-controls="answer4" data-aos="fade-up"  data-ao-delay="500">
+                <span>Is the pet hotel suitable for long-term stays?</span>
+                <button class="btn btn-sm"><i class="bi bi-arrow-down-circle" style="font-size: 25px;"></i></button>
+            </div>
+            <div id="answer4" class="collapse" aria-labelledby="question4" data-bs-parent="#faqAccordion">
+                <p class="faq-answer">Yes, our pet hotel accommodates both short-term and long-term stays. We ensure your pet receives proper care, regular feeding, and exercise throughout their stay.</p>
+            </div>
+        </div>
+
+        <div>
+            <div class="faq-question" id="question5" data-bs-toggle="collapse" data-bs-target="#answer5" aria-expanded="false" aria-controls="answer5" data-aos="fade-up"  data-ao-delay="400">
+                <span>Are your pet care products eco-friendly?</span>
+                <button class="btn btn-sm"><i class="bi bi-arrow-down-circle" style="font-size: 25px;"></i></button>
+            </div>
+            <div id="answer5" class="collapse" aria-labelledby="question5" data-bs-parent="#faqAccordion">
+                <p class="faq-answer">Many of our pet care products are eco-friendly, including biodegradable waste bags, natural grooming products, and sustainable pet toys. We strive to promote environmentally conscious choices.</p>
+            </div>
+        </div>
+    </div>
+</div>
+   <!-- FAQ END -->
+
+
+
+   <!-- TESTIMONIAL START -->
+   <div class="container my-5" >
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 100px;">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <img src="bulat.PNG" alt="Icon" style="width: 3.5rem; height: auto; margin-right: 10px;" data-aos="fade-right" data-aos-delay="200">
+        <h1 style="margin-left: auto; color: #6C4DDC;  font-weight: 900;" data-aos="fade-left">Our Happy Customers</h1>
+      </div>
+    </div>
+    
+    <div id="customTestimonialCarousel" class="carousel slide" data-bs-ride="carousel" style="margin: auto;" data-aos="fade-up"data-aos-delay="300" >
+      <div class="carousel-inner">
+
+        <div class="carousel-item active">
+          <div class="row">
+            <div class="col-md-4 col-sm-4">
+              <div class="custom-testimonial-card">
+                <div class="profile-container">
+                  <img class="profile-photo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-j5LLVmhiqHnR9HjfFms3sldJ2igybcRLlg&s" alt="User 2">
+                  <img class="corner-decor" src="tes.PNG" alt="Decoration">
+                </div>
+                <div class="name">Beomgyu</div>
+                <div class="stars">★★★★★</div>
+                <p>"Pet Haven has been a lifesaver for me and my dog, Bella. Their grooming services are top-notch, and the staff is incredibly gentle and loving. Bella always comes home looking happy and fresh!"</p>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-4">
+              <div class="custom-testimonial-card">
+                <div class="profile-container">
+                  <img class="profile-photo" src="data:image/jpeg;base64,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" alt="User 2">
+                  <img class="corner-decor" src="tes.PNG" alt="Decoration">
+                </div>
+                <div class="name">Choi Soobin</div>
+                <div class="stars">★★★★★</div>
+                <p>"Leaving my cat, Luna, at Pet Haven's hotel was the best decision. The rooms are clean, cozy, and the staff kept me updated with photos. I could see Luna was well taken care of. Highly recommend!"</p>
+              </div>
+            </div>
+            
+            <div class="col-md-4 col-sm-4">
+              <div class="custom-testimonial-card">
+                <div class="profile-container">
+                  <img class="profile-photo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTweS769NFa8NjlDIlWVAxpoPkJRdmlE0oOXQ&s" alt="User 2">
+                  <img class="corner-decor" src="tes.PNG" alt="Decoration">
+                </div>
+                <div class="name">Choi Yeonjun</div>
+                <div class="stars">★★★★★</div>
+                <p>"I love the variety of pet products available at Pet Haven. From toys to organic food, they have everything my pets need. Plus, the quality is excellent, and the prices are reasonable."</p>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="carousel-item">
+          <div class="row">
+            <div class="col-md-4 col-sm-4">
+              <div class="custom-testimonial-card">
+                <div class="profile-container">
+                  <img class="profile-photo" src="data:image/jpeg;base64,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" alt="User 2">
+                  <img class="corner-decor" src="tes.PNG" alt="Decoration">
+                </div>
+                <div class="name">Kang Taehyun</div>
+                <div class="stars">★★★★★</div>
+                <p>"Thanks to Pet Haven's health products, my dog Max has never been healthier. Their supplements and vet-approved snacks are amazing, and I can see a big improvement in Max's energy and coat."</p>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-4">
+              <div class="custom-testimonial-card">
+                <div class="profile-container">
+                  <img class="profile-photo" src="https://cms.disway.id/uploads/c03508f24dbb5555dfb58e388517db6b.jpeg" alt="User 2">
+                  <img class="corner-decor" src="tes.PNG" alt="Decoration">
+                </div>
+                <div class="name">Hueningkai</div>
+                <div class="stars">★★★★★</div>
+                <p>"Pet Haven's boarding service is exceptional. My dog, Charlie, was treated like royalty! The staff is caring, and I loved how they provided daily updates during his stay."</p>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-4">
+              <div class="custom-testimonial-card">
+                <div class="profile-container">
+                  <img class="profile-photo" src="data:image/jpeg;base64,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" alt="User 2">
+                  <img class="corner-decor" src="tes.PNG" alt="Decoration">
+                </div>
+                <div class="name">Manda</div>
+                <div class="stars">★★★★★</div>
+                <p>"The customer service at Pet Haven is dope! They are always ready to help with recommendations and advice. It’s clear they truly care about animals and their owners"</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#customTestimonialCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" style="color: #f9cd5c !important;" ></span>
+        <span style="color: #6C4DDC; font-size: 3rem; "><i class="bi bi-arrow-left-circle-fill"></i></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#customTestimonialCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span style="color: #6C4DDC; font-size: 3rem; "><i class="bi bi-arrow-right-circle-fill"></i></span>
+      </button>
+    </div>
+  </div>
+  <!-- TESTIMONIAL END -->
+
+
+   <!-- CONTACT START -->
+   <div style="max-width: 1200px; margin: 0 auto; padding: 0 100px;">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <h1 style="font-weight: 900; color: #6C4DDC;" data-aos="fade-right">Our Contact</h1>
+      <img src="bulet.jpg" alt="Icon"  data-aos="fade-left" data-aos-delay="200" style="width: auto; height: 3.5rem;">
+    </div>
+  </div>
+   <div class="container my-5">
+    <div class="d-flex justify-content-center gap-3">
+      <div class="custoom-card card-instagram" data-account="@instagramhandle" data-aos="fade-up">
+        <i class="bi bi-instagram"></i>
+      </div>
+      <div class="custoom-card card-whatsapp" data-account="085709297847" data-aos="fade-up">
+        <i class="bi bi-whatsapp"></i>
+      </div>
+      <div class="custoom-card card-tiktok" data-account="@tiktokhandle" data-aos="fade-up">
+        <i class="bi bi-tiktok"></i>
+      </div>
+    </div>
+  </div>
+   <!-- CONTACT END-->
+   <div class="container py-5" style="padding: 70px;" id="location" data-aos="fade-right" data-ao-delay="200">
+    <div class="row align-items-center">
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <h1 class="mb-3" style="font-weight: 900; color: #6C4DDC;">Lokasi Kami</h1>
+        <p class="mb-2" style="font-weight: 700;">TEMANGGUNG, INDONESIA</p>
+        <p class="mb-4">
+          Dusun Dotakan, RT.04/RW.01, Kauman, Candiroto,<br>
+          Kabupaten Temanggung, Jawa Tengah
+        </p>
+        <p class="mb-1" style="font-weight: 700;">Jam Operasional:</p>
+        <ul class="list-unstyled">
+          <li>Senin - Sabtu (09:00 - 17:00)</li>
+          <li>Minggu (12:00 - 17:00)</li>
+        </ul>
+      </div>
+      <div class="col-lg-6">
+        <iframe   data-aos="fade-left" data-ao-delay="300" style="border-radius: 10px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.851069773917!2d106.74163527528526!3d-6.787970893209139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69cdd09f2eb1db%3A0x6d66970f38a65250!2sNo%20name!5e0!3m2!1sid!2sid!4v1734276284243!5m2!1sid!2sid" 
+                width="100%" height="350" style="border:0;" 
+                allowfullscreen="" loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+  <!-- Footer START -->
+  
+  <footer class="text-center text-lg-start text-white" style="background-color: #1c2331; margin-top:250px;"  >
+    <section   class="d-flex justify-content-between p-4" style="background-color: #6351ce" >
+      <div class="me-5">
+        <span>Get connected with us on social networks:</span>
+      </div>
+      <div>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-google"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+    </section>
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+        <div class="row mt-3">
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <img src="cc.PNG" style="height: 120px; padding: 10px;" alt="Gambar Selamat datang"/>
+            <p>
+              We believe pets deserve the best care. Grooming and pet hotel services to quality pet products, we treat your pet like family.
+            </p>
+          </div>
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold">Service</h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #7c4dff; height: 2px"
+                />
+            <p>
+              <a href="#!" class="text-white">Grooming</a>
+            </p>
+            <p>
+              <a href="#!" class="text-white">Hotel</a>
+            </p>
+            <p>
+              <a href="#!" class="text-white">Pet Store</a>
+            </p>
+          </div>
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold">Useful links</h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #7c4dff; height: 2px"
+                />
+            <p>
+              <a href="#about" class="text-white">About</a>
+            </p>
+            <p>
+              <a href="#service" class="text-white">Service</a>
+            </p>
+            <p>
+              <a href="#porto" class="text-white">Portofolio</a>
+            </p>
+            <p>
+              <a href="#faq" class="text-white">FAQ</a>
+            </p>
+          </div>
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <h6 class="text-uppercase fw-bold">Contact</h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #7c4dff; height: 2px"
+                />
+            <p><i class="fas fa-home mr-3"></i> Brooklyn, NY 2112, US</p>
+            <p><i class="fas fa-envelope mr-3"></i> PetHaven@example.com</p>
+            <p><i class="fas fa-phone mr-3"></i> + 08 234 567 88</p>
+            <p><i class="fas fa-print mr-3"></i> + 08 234 567 89</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div
+         class="text-center p-3"
+         style="background-color: rgba(0, 0, 0, 0.2)"
+         >
+      © 2020 Copyright:
+      <a class="text-white" href="#"
+         >Alstrange</a
+        >
+    </div>
+  </footer>
+<!-- FOOTER End  -->
+
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script type="text/javascript" src="vanilla-tilt.js"></script>
+   <script>
+   AOS.init();
+  </script>
+   <!-- BOOTSTRAP JS -->
+   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
